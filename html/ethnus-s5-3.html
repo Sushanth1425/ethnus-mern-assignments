@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width", initial-scale=1.0">
+  <title>Task 8</title>
+</head>
+<body>
+  <div style="display: flex; align-items: center;">
+    <div>
+      <img style="width: 300px;" src="https://img.freepik.com/free-photo/beautiful-young-female-doctor-looking-camera-office_1301-7807.jpg?semt=ais_hybrid&w=740" alt="doctor image">
+    </div>
+
+    <div style="padding: 15px; ">
+      <h1 style="text-align: center;">Doctor Appointment Form</h1>
+      <hr>
+  
+      <table style="width: 100%; border-spacing: 10px;" >
+        <tr>
+          <td style="text-align: left; vertical-align: middle; padding-right: 150px">Appointment Date</td>
+          <td><input type="date"></td>
+        </tr>
+  
+        <tr>
+          <td style="text-align: left; vertical-align: middle;">Appointment Time</td>
+          <td><input type="time"></td>
+        </tr>
+  
+        <tr>
+          <td style="text-align: left; vertical-align: middle;">Name</td>
+          <td>
+            <input type="text" placeholder="First" style="margin-right: 10px;">
+            <input type="text" placeholder="Last">
+          </td>
+        </tr>
+  
+        <tr>
+          <td style="text-align: left; vertical-align: middle;">Gender</td>
+          <td>
+            <label>Male<input type="radio" name="gender"></label>
+            <label>Female<input type="radio" name="gender"></label>
+          </td>
+        </tr>
+  
+        <tr>
+          <td style="text-align: left; vertical-align: middle;">Number</td>
+          <td><input type="number"></td>
+        </tr>
+  
+        <tr>
+          <td style="text-align: left; vertical-align: middle;">Your Query</td>
+          <td><textarea style="height: 100px; width: 400px;"></textarea></td>
+        </tr>
+  
+        <tr>
+          <td style="text-align: left; vertical-align: top; padding-top: 19px;">Appointment Type</td>
+          <td>
+            <p>Select which appointment type(s) you require:</p>
+            <label><input type="checkbox" name="appointment-type"> Cervix Checkup</label><br>
+            <label><input type="checkbox" name="appointment-type"> Heart Checkup</label><br>
+            <label><input type="checkbox" name="appointment-type"> Eye Checkup</label><br>
+            <label><input type="checkbox" name="appointment-type"> Hearing Test</label><br> <br>
+            <button>Send</button>
+
+          </td>
+        </tr>
+ 
+      </table>
+  </div>
+</body>
+</html>
