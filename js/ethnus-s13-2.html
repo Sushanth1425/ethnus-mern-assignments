@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 26</title>
+</head>
+<body>
+  <p id="res"></p>
+</body>
+<script>
+  let x= Number(prompt("Enter your marks (0-100): "))
+  const res= document.getElementById('res')
+  if(x>=90 && x<=100) res.innerHTML= "Grade: S"
+  else if(x>=80 && x<=89) res.innerHTML= "Grade: A"
+  else if(x>=70 && x<=79) res.innerHTML= "Grade: B"
+  else if(x>=60 && x<=69) res.innerHTML= "Grade: C"
+  else if(x>=50 && x<=59) res.innerHTML= "Grade: D"
+  else if(x>=40 && x<=49) res.innerHTML= "Grade: E"
+  else if(x>=40 && x<=49) res.innerHTML= "Grade: F"
+  else res.innerHTML= "Invalid Mark"
+
+</script>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 29</title>
+  <style>
+    body, html{
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    div{
+      display: flex;
+      padding: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+    .dmsg{
+      align-items: start;
+    }
+    p{
+      margin: 15px;
+    }
+    input{
+      width: 250px;
+      height: 25px;
+    }
+    textarea{
+      height: 130px;
+      width: 320px;
+    }
+    #mail, #name, #msg, #web{
+      color: red;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>Regisration Form</h2>
+  <div class="dname">
+    <p>Name: </p>
+    <input type="text" class="" id="nameInp">
+    <p id="name">This filed is required</p>
+  </div>
+
+  <div class="dmail">
+    <p>Email: </p>
+    <input type="text" class="" id="mailInp">
+    <p id="mail">A valid email address is required </p>
+  </div>
+
+  <div class="dweb">
+    <p>Website: </p>
+    <input type="text" class="" id="webInp">
+    <p id="web">A valid url is required </p>
+  </div>
+
+  <div class="dmsg">
+    <p style="margin-top: 0;">Message: </p>
+    <textarea name="" id="msgInp"></textarea>
+    <p id="msg">This filed is required</p>
+  </div>
+  <button id="sub">Submit</button>
+</body>
+<script>
+  document.getElementById('sub').addEventListener('click', function(event) {
+      event.preventDefault();
+      let valid = true;
+
+      const nameInp= document.getElementById('nameInp').value.trim();
+      if (!nameInp){
+        document.getElementById('name').style.display = 'block'; 
+        document.getElementById('nameInp').style.border = 'solid 2px red';
+        valid = false;
+      }
+      else{
+        document.getElementById('name').style.display='none';
+        document.getElementById('nameInp').style.border = 'solid 1px black';
+      }
+
+      const mailInp= document.getElementById('mailInp').value.trim();
+      if (!mailInp){
+        document.getElementById('mail').style.display='block';
+        document.getElementById('mailInp').style.border = 'solid 2px red';
+        valid= false;
+      }
+      else{
+        document.getElementById('mail').style.display='none';
+        document.getElementById('mailInp').style.border = 'solid 1px black';
+      }
+
+      const webInp= document.getElementById('webInp').value.trim();
+      if (!webInp){
+        document.getElementById('web').style.display='block';
+        document.getElementById('webInp').style.border = 'solid 2px red';
+        valid= false;
+      }
+      else{
+        document.getElementById('web').style.display= 'none';
+        document.getElementById('webInp').style.border = 'solid 1px black';
+      }
+
+      const msgInp= document.getElementById('msgInp').value.trim();
+      if (!msgInp){
+        document.getElementById('msg').style.display='block';
+        document.getElementById('msgInp').style.border = 'solid 2px red';
+        valid= false;
+      }
+      else{
+        document.getElementById('msg').style.display= 'none';
+        document.getElementById('msgInp').style.border = 'solid 1px black';
+      }
+
+      if (valid) {  
+        alert('Form submitted successfully!');
+      }
+    });
+    
+</script>
+</html>

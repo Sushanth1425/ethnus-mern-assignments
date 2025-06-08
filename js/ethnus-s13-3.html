@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 27</title>
+</head>
+<body>
+  <p id="res"></p>
+</body>
+<script>
+  let x= Number(prompt("How many times do you want to repeat the text : "))
+  let y= prompt("Enter the text to repeat : ")
+  const res= document.getElementById('res');
+  for (let i=1; i<=x; i++){
+    res.innerHTML+= i+". "+ y +"<br>"
+  }
+</script>
+</html>

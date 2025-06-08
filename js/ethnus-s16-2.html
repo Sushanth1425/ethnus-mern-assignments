@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 31</title>
+  <style>
+    html, body{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      color: grey;
+      flex-direction: column;
+    }
+    h1{
+      color: black;
+    }
+    .row{
+      display: flex;
+    }
+    .col{
+      border: solid 1px;
+      padding: 10px;
+
+    }
+    .table{
+      padding: 10px;
+    }
+    .col{
+      width: 200px;
+    }
+    .c{
+      width: 500px;
+    }
+    input{
+      width: 110px;
+    }
+    textarea{
+      height: 150px;
+      width: 350px;
+    }
+    button{
+      padding: 5px 10px;
+    }
+   
+  </style>
+</head>
+<body>
+  <h1>Prime Number Generator</h1>
+  <div class="table">
+    <div class="row">
+      <div class="col">Start</div>
+      <div class="col c"><input type="text" id="start"></div>
+    </div>
+    <div class="row">
+      <div class="col">End</div>
+      <div class="col c"><input type="text" id="end"></div>
+    </div>
+    <div class="row">
+      <div class="col"><p>Prime Number</p></div>
+      <div class="col c"><textarea name="" id="prime"></textarea></div>
+    </div>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col c"><button id="gen">Generate</button></div>
+    </div>
+  </div>
+</body>
+<script>
+  document.getElementById("gen").addEventListener('click', function(event){
+    event.preventDefault();
+    const start= parseInt(document.getElementById('start').value.trim());
+    const end= parseInt(document.getElementById('end').value.trim());
+    if (isNaN(start) || isNaN(end) || !start || !end ) {
+      alert('Please enter valid numbers');
+      document.getElementById('prime').value='';
+      return;
+    }
+    let primes= [];
+    
+    const isPrime= (num)=> {
+      if (num <= 1) return false;
+      for (let i = 2; i <= Math.sqrt(num); i++) 
+        if (num % i === 0) return false;
+      return true;
+    }
+    for (let i= start; i<=end; i++)
+    if (isPrime(i)) primes.push(i);
+  
+    document.getElementById('prime').value= primes.join(", ");
+  }
+)
+</script>
+</html>
