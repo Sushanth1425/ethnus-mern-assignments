@@ -12,37 +12,87 @@
       justify-content: center;
       align-items: center;
     }
+    
     section{
-      background-color: bisque;
+      background-color: rgb(241, 238, 235);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
     }
     button{
       background-color: blueviolet;
       border: none;
-      padding: 10px ;
-      width: 200px;
+      padding: 15px ;
+      width: 320px;
+      margin: 10px;
+      border-radius: 3px;
+      color: white;
+    }
+    a{
+      text-decoration: none;
+      color: rgb(73, 163, 193);
+    }
+    img{
+      width: 30px;
+      border: solid 1px gray;
+      padding: 9px;
+      border-radius: 3px 0 0 3px;
+    }
+    div{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px;
+      width: 320px;
+      height: 50px;
+    }
+    .lastin{
+      margin: 0;
+      width: max-content;
+    }
+    input{
+      width: 100%;
+      height: 92%;
+      border: solid 1px grey;
+      border-radius: 0 3px 3px 0;
+    }
+    .last{
+      font-size: 18px;
+      display: flex;
+      justify-content: space-between;
+    }
+    h2{
+      font-weight: lighter;
+      font-size: 50px;
+      margin: 20px;
     }
   </style>
+
 </head>
 <body>
   <section>
     <h2><i>Instagram</i></h2>
     <div>
-      <img src="" alt="">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdDJn8f1DQVMBq7hGSGqtou1_Kuiz8JyWphAjfyceHPkgX-U5Xvg08cfcITkj77tFjrWY&usqp=CAU" alt="">
       <input type="text" placeholder="Username">
     </div>
     <div>
-      <img src="" alt="">
+      <img src="https://icons.veryicon.com/png/o/business/pinjamango2018/password-copy.png" alt="">
       <input type="password" placeholder="Password">
     </div>
     <button>Log in</button>
     <div class="last">
-      <input type="checkbox">
-      <p>Remember me</p>
-      <a href="">Forgot Password?</a>
+      <div class="lastin"><input type="checkbox" style="width: fit-content;">
+      <p>Remember me </p> </div>
+      <a href="">Forgot Password?</a> 
     </div>
   </section>
   <footer>
-    <p>Don't have an accout? <a href="">Sign up here</a>. </p>
+    <p>Don't have an accout?! <a href="">Sign up here</a>. </p>
   </footer>
 </body>
 <script>
