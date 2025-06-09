@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 38</title>
+  <style>
+    html, body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background-color: rgb(33, 31, 31);
+    }
+    div{
+      display: flex;
+      margin: 10px;
+    }
+    section{
+      background-color: black;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 20px;
+      box-shadow: 5px 5px 15px rgba(201, 180, 180, 0.3);
+      color: white;
+      padding: 15px;
+    }
+    h2{
+      color: black;
+      background-color: white;
+      text-align: center;
+      padding: 10px;
+      width: 90%;
+      border-radius: 30px;
+    }
+    button{
+      border: none;
+      border-radius: 20px;
+      background-color: white;
+      color: black;
+      padding: 0px 30px;
+      margin: 10px;
+    }
+    button:hover{
+      background-color: rgb(206, 152, 152);
+      transition: 30ms;
+    }
+    button:active{
+      background-color: rgb(107, 27, 27);
+      transition: 60ms;
+    }
+    #op{
+      width: 300px;
+      background-color: white;
+      margin: 10px;
+      border-radius: 20px;
+      color: black;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <h2>Password - Generator</h2>
+    <div class="fir">
+      <div id="op"></div>
+      <p>Password</p>
+      <button id="copy">Copy</button>
+    </div>
+    <div class="sec">
+      <input type="range" id="chrs" min="8" max="50" value="8" step="1">
+      <div class="len">
+        <p style="margin-right: 5px;">Length </p> 
+        <p id="len">8</p>
+      </div>
+      <div>
+        <input type="checkbox" id="chars">
+        <p>Characters</p>
+      </div>
+      <div>
+        <input type="checkbox" id="nums">
+        <p>Numbers</p>
+      </div>
+    </div>
+  </section>
+</body>
+<script>
+  const chrs= document.getElementById("chrs");
+  const len= document.getElementById("len");
+  const op= document.getElementById("op");
+  const chars= document.getElementById("chars");
+  const nums= document.getElementById("nums");
+  const copy= document.getElementById("copy");
+  len.textContent = chrs.value;  
+
+  chrs.addEventListener('input', function(event){
+    event.preventDefault();
+    len.textContent= chrs.value;
+  });
+
+  function genPwd() {
+    const len= parseInt(chrs.value);
+    const useChars= chars.checked;
+    const useNums= nums.checked;
+
+    const charSet= "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const numSet= "0123456789";
+    const specialCharSet= "!@#$%^&*()_-+=<>?/";
+
+    let char= charSet;  
+    if (useChars) char+= specialCharSet;  
+    if (useNums) char+= numSet;  
+
+    let pwd= "";
+    for (let i= 0; i<len; i++) {
+      const ind= Math.floor(Math.random()*char.length);
+      pwd += char[ind];
+    }
+    op.textContent= pwd;
+  }
+
+  chrs.addEventListener('input', genPwd);
+  chars.addEventListener('change', genPwd);
+  nums.addEventListener('change', genPwd);
+
+  copy.addEventListener('click', function() {
+    navigator.clipboard.writeText(op.textContent)
+  });
+  genPwd();
+
+</script>
+</html>
