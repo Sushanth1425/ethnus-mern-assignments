@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ethnus MERN tasks</title>
+  <style>
+    html, body{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100%;
+    }
+    section{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    div{
+      height: 200px;
+      width: 200px;
+      max-width: 25%;
+      box-shadow: 0px 0px 10px black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      background-color: blueviolet;
+      margin: 15px;
+    }
+    a{
+      text-decoration: none;
+      color: white;
+      font-size: 25px;
+      text-align: center;
+    }
+    .css{
+      background-color: purple;
+    }
+    h1{
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h1>HTML TASKS</h1>
+  <section id="htmlCont"></section>
+  <h1>CSS TASKS</h1>
+  <section id="cssCont"></section>
+  <h1>JAVASCRIPT TASKS</h1>
+  <section id="jsCont"></section>
+  
+</body>
+<script>
+  let htmlCont= ""; 
+  let i=1;
+  const htmlTasks= [ "ethnus-s3-1", "ethnus-s3-2", "ethnus-s3-3", "ethnus-s4-1", "ethnus-s4-2", "ethnus-s5-1", "ethnus-s5-2", "ethnus-s5-3" ]
+  htmlTasks.forEach(ele => {
+    htmlCont+= `
+    <div class="html">
+      <a href="/html/${ele}.html" target="_blank">Task ${i}<br><br>${ele}</a>
+    </div>
+    `
+    i++;
+  });
+  document.getElementById('htmlCont').innerHTML= htmlCont;
+
+
+  cssCont= ""
+  const cssTasks= [
+    "ethnus-s6-1", "ethnus-s6-2", "ethnus-s6-3", "ethnus-s8-1", "ethnus-s8-2", "ethnus-s8-3", "ethnus-s8-4", "ethnus-s8-5",
+    "ethnus-s8-6", "ethnus-s8-7", "ethnus-s10-1", "ethnus-s10-2", "ethnus-s10-3", "ethnus-s11-1", "ethnus-s11-2", "ethnus-s11-3", 
+    "ethnus-s11-4"
+  ]
+  cssTasks.forEach(ele => {
+    cssCont+= `
+    <div class="css">
+      <a href="/css/${ele}.html" target="_blank">Task ${i}<br><br>${ele}</a>
+    </div>
+    `
+    i++;
+  });
+  document.getElementById('cssCont').innerHTML= cssCont;
+
+
+  jsCont= ""
+  const jsTasks= [
+    "ethnus-s13-1", "ethnus-s13-2", "ethnus-s13-3", "ethnus-s14-1", "ethnus-s15-1", "ethnus-s16-1", "ethnus-s16-2", 
+    "ethnus-s16-3", "ethnus-s16-4", "ethnus-s17-1", "ethnus-s17-2", "ethnus-s17-3", "ethnus-s17-4", "ethnus-s17-5", "ethnus-s18-1", 
+    "ethnus-s18-2", "ethnus-s19-1", "ethnus-s19-2", 
+  ]
+  jsTasks.forEach(ele => {
+    jsCont+= `
+    <div class="js">
+      <a href="/js/${ele}.html" target="_blank">Task ${i}<br><br>${ele}</a>
+    </div>
+    `
+    i++;
+  document.getElementById('jsCont').innerHTML= jsCont;
+
+  });
+</script>
+</html>

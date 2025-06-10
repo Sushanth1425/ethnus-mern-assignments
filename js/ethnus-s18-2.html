@@ -12,12 +12,51 @@
       justify-content: center;
       flex-direction: column;
     }
+    div{
+      display: flex;
+      margin: 10px;
+      padding: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+    p, input, button{
+      margin: 10px;
+      padding: 5px;
+    }
   </style>
 </head>
 <body>
-  
+  <div class="one">
+    <p class="nam">Name: </p>
+    <input type="text" id="name">
+  </div>
+  <div class="one">
+    <p class="ag">Age: </p>
+    <input type="number" id="age">
+  </div>
+  <div class="three">
+    <button id="save">Save</button>
+    <button id="ret">Retrive</button>
+  </div>
+
 </body>
 <script>
+  document.getElementById('save').addEventListener('click', function(e){
+    e.preventDefault();
+    const name= document.getElementById('name').value;
+    const age= document.getElementById('age').value;
+    localStorage.setItem('name', name);
+    localStorage.setItem('age', age);
 
+  })
+
+  document.getElementById('ret').addEventListener('click', function(e){
+    e.preventDefault();
+    const name= localStorage.getItem('name');
+    const age= localStorage.getItem('age');
+    if (name) document.getElementById('name').value= name;
+    if (age) document.getElementById('age').value= age;
+
+  })
 </script>
 </html>

@@ -9,15 +9,140 @@
       display: flex;
       height: 100%;
       align-items: center;
-      justify-content: center;
       flex-direction: column;
+      background-color: antiquewhite;
+      padding: 10px;
+    }
+    div{
+      display: flex;
+      padding: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+    p{
+      padding: 10px;
+      margin: 10px;
+      width: 100px;
+    }
+    select{
+      width: 240px;
+      height: 35px;
+    }
+    input{
+      width: 230px;
+      height: 30px;
+    }
+    .err{
+      font-size: 15px;
+      padding: 0;
+      margin: 0;
+      width: 250px;
+      margin-left: 160px;
+      display: none;
+    }
+    textarea{
+      height: 100px;
+      width: 230px;
+    }
+    button{
+      padding: 5px 25px;
+      margin: 15px;
     }
   </style>
 </head>
 <body>
+  <div>
+    <p>First Name</p>
+    <input type="text" id="name1">
+  </div>
+    <p class="err" id="nam1err">Please supply your first name</p>
   
+  <div>
+    <p>Last Name</p>
+    <input type="text" id="name2">
+  </div>
+  <p class="err" id="nam2err">Please supply your last name</p>
+
+  <div>
+    <p>E-Mail</p>
+    <input type="text" id="mail">
+  </div>
+    <p class="err" id="mailerr">Please supply your email address</p>
+
+  <div>
+    <p>Phone #</p>
+    <input type="text" id="num">
+  </div>
+    <p class="err" id="numerr">Please supply your phone number</p>
+
+  <div>
+    <p>Address</p>
+    <input type="text" id="add">
+  </div>
+    <p class="err" id="adderr">Please supply your street address</p>
+
+  <div>
+    <p>City</p>
+    <input type="text" id="city">
+  </div>
+    <p class="err" id="cityerr">Please supply your city</p>
+
+  <div>
+  <p>State</p>
+  <select id="state">
+    <option value="">Select State</option>
+    <option value="TN">Tamil Nadu</option>
+    <option value="KL">Kerala</option>
+    <option value="AP">Andhra Pradesh</option>
+    <option value="TS">Telangana</option>
+    <option value="KA">Karnataka</option>
+    <option value="PY">Puducherry</option>
+  </select>
+</div>
+  <div style="align-items: start; margin-left: -100px;">
+    <p style="width: 200px;">Do you have hosting?</p>
+    <div style="display: block;">
+    <input type="radio" id="s" style="width: 15px; "> Yes <br>
+    <input type="radio" id="no" style="width: 15px;"> No
+    </div>
+  </div>
+
+  <div style="align-items: start; margin-left: -10px; ">
+    <p style="width: 180px;">Project Desceprition</p>
+    <textarea name="" id="desc"></textarea>
+  </div>
+
+  <div>
+    <button id="send">Send</button>
+  </div>
+
 </body>
 <script>
+  document.getElementById('send').addEventListener('click', function(e){
+    e.preventDefault();
+    const name1= document.getElementById('name1').value.trim();
+    const name2= document.getElementById('name2').value.trim();
+    const mail= document.getElementById('mail').value.trim();
+    const num= document.getElementById('num').value.trim();
+    const add= document.getElementById('add').value.trim();
+    const city= document.getElementById('city').value.trim();
+    const s= document.getElementById('s').checked;
+    const no= document.getElementById('no').checked;
+    const desc= document.getElementById('desc').value.trim();
 
+    if (!name1) document.getElementById('nam1err').style.display= 'block';
+    else document.getElementById('nam1err').style.display= 'none';
+    if (!name2) document.getElementById('nam2err').style.display= 'block';
+    else document.getElementById('nam2err').style.display= 'none';
+    if (!mail) document.getElementById('mailerr').style.display= 'block';
+    else document.getElementById('mailerr').style.display= 'none';
+    if (!num) document.getElementById('numerr').style.display= 'block';
+    else document.getElementById('numerr').style.display= 'none';
+    if (!add) document.getElementById('adderr').style.display= 'block';
+    else document.getElementById('adderr').style.display= 'none';
+    if (!city) document.getElementById('cityerr').style.display= 'block';
+    else document.getElementById('cityerr').style.display= 'none';
+
+  })
 </script>
 </html>
