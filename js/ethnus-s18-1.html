@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 39</title>
+  <style>
+    html, body{
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background-color: rgb(130, 209, 130);
+    }
+  </style>
+</head>
+<body>
+  <h1>Weather App</h1>
+  <div>
+    <div class="disp">
+      <p id="temp"></p>
+      <p id="loc"></p>
+      <p id="time"></p>
+      <p id="clim"></p>
+    </div>
+    <div class="inp">
+      <input type="text" id="ip" placeholder="Enter the location">
+      <button id="search">Search Button</button>
+    </div>
+  </div>
+</body>
+<script>
+  const apiKey= 'e045e0d5b6ed782d7a6fef9c4317e852';
+  const search= document.getElementById('search');
+  search.addEventListener('click', function(e){
+    e.preventDefault();
+    const loc= document.getElementById('ip').value.trim();
+    if (loc) 
+        getWeather(loc);
+    else 
+      alert('Please enter a location');
+  })
+  const getWeather=(loc)=>{
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`;
+    fetch(url).then(resp=>{
+      if (!resp.ok){
+        throw new Error('City not found or invalid API key');
+          }
+          return response.json(); 
+        })
+        .then(data => {
+          display(data);
+        })
+        .catch(error => {
+          document.getElementById('temp').textContent= `Error: ${error.message}`;
+    })
+  }
+  function display(data) {
+    const temp = document.getElementById('temp');
+    const loc = document.getElementById('loc');
+    const time = document.getElementById('time');
+    const clim = document.getElementById('clim');
+    
+    const temperature = data.main.temp;
+    const location = `${data.name}, ${data.sys.country}`;
+    const weatherDescription = data.weather[0].description;
+    
+    temp.textContent = `Temperature: ${temperature}°C`;
+    loc.textContent = `Location: ${location}`;
+    clim.textContent = `Weather: ${weatherDescription}`;
+    
+    const date = new Date();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const formattedTime = `${hours}:${minutes < 10 ? '0' + minutes : minutes}`;
+    time.textContent = `Time: ${formattedTime}`;
+  }
+</script>
+</html>

@@ -5,13 +5,121 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task 33</title>
   <style>
+    body,html{
+      background-color: blueviolet;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      flex-direction: column;
+    }
+    h1{
+      color: white;
+      text-align: center;
+    }
+    div{
+      box-shadow: 5px 5px 10px black;
+      padding: 15px;
+      border-radius: 10px;
+      background-color: white;
+      border: none;
+      display: flex;
+      margin: 20px;
+    }
+    .d{
+      box-shadow: none;
+      justify-content: space-between;
+      background-color: blueviolet;
+    }
+    button{
+      background-color: blueviolet;
+      color: white;
+      padding: 5px 25px;
+      border-radius: 5px;
+      border: none;
+      margin: 20px;
+    }
+    input{
+      margin: 20px;
+      background-color: rgb(228, 239, 239);
+      border: none;
+      padding: 10px;
+    }
+    .in{
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      width: 100px;
+      height: 100px;
+    }
+    .up{
+      width: 500px;
+      justify-content: space-around;
+    }
+    #yr, #mon, #day{
+      font-weight: bolder;
+      font-size: 28px;
+    }
 
   </style>
 </head>
 <body>
-  
+  <h1>AGE CALCULATOR</h1>
+  <div class="up">
+    <input type="date" id="dob">
+    <button id="cal">Calculator</button>
+  </div>
+  <div class="d">
+    <div class="in">
+      <p id="yr">00</p>
+      <p>YEAR</p>
+    </div>
+    <div class="in">
+      <p id="mon">00</p>
+      <p>MONTH</p>
+    </div>
+    <div class="in">
+      <p id="day">00</p>
+      <p>DAY</p>
+    </div>
+  </div>
 </body>
 <script>
+  const dob= document.getElementById('dob');
+  const yr= document.getElementById('yr');
+  const mon= document.getElementById('mon');
+  const day= document.getElementById('day');
 
+  const today = new Date();
+  const todayDate = today.toISOString().split('T')[0]; 
+  dob.setAttribute('max', todayDate);
+
+  document.getElementById('cal').addEventListener('click', function(event){
+    event.preventDefault();
+    if (!dob.value) {
+      alert('Please select a date of birth.');
+      return;
+    }
+    const bday= new Date(dob.value)
+    const today= new Date();
+
+    let yrs= today.getFullYear()- bday.getFullYear();
+    let mons= today.getMonth()- bday.getMonth();
+    let days= today.getDate()- bday.getDate();
+
+    if (mons<0){
+      yrs--;
+      mons+=12;
+    }
+    if (days<0){
+      mons--;
+      const lastmon= new Date(today.getFullYear(), today.getMonth(), 0);
+      days+= lastmon.getDate();
+    }
+    yr.textContent= yrs;
+    mon.textContent= mons;
+    day.textContent= days;
+  })
 </script>
 </html>

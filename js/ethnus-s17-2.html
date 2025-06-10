@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 35</title>
+  <style>
+    html, body{
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    h1,p,input, button, div{
+      padding: 15px;
+      margin: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sorting the text in alphabetical order</h1>
+  <div>
+    <input type="text" placeholder="Enter the Text" id="txt">
+    <button id="sort">Sort</button>
+  </div>
+  <p id="op"></p>
+</body>
+<script>
+  document.getElementById('sort').addEventListener('click', function(event){
+    event.preventDefault();
+    const txt= document.getElementById('txt').value.trim();
+    const sorted=(txt)=> txt.split("").sort().join("");
+    document.getElementById('op').textContent= sorted(txt);    
+  })
+</script>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 36</title>
+  <style>
+    html, body{
+      display: flex;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+    .out{
+      border: solid 1px;
+    }
+    div,p, input{
+      padding: 15px;
+      margin: 15px;
+    } 
+    button{
+      padding: 8px;
+      margin: 20px;
+    }
+    .one, .two, .three{
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="out">
+    <div class="one">
+      <p id="ip1">1st Number :</p>
+      <input type="text" placeholder="Enter the first number" id="fir">
+    </div>
+    <div class="two">
+      <p id="ip2">2nd Number :</p>
+      <input type="text" placeholder="Enter the second number" id="sec">
+    </div>
+    <div class="three">
+      <button id="xly">Multiply</button>
+      <button id="divi">Divide</button>
+    </div>
+    <div class="four">
+      <p>The Result Is: </p>
+      <p id="op"></p>
+    </div>
+  </div>
+</body>
+<script>
+  const num1= parseFloat(document.getElementById('fir').value);
+  const num2= parseFloat(document.getElementById('sec').value);
+  const op= document.getElementById('op');
+
+  document.getElementById('xly').addEventListener('click', function(e){
+    e.preventDefault();
+    if (!isNaN(num1) && !isNaN(num2))
+      op.textContent= num1*num2;
+    else
+      op.textContent= "Enter valid inputs!!"
+  })
+
+   document.getElementById('divi').addEventListener('click', function(e){
+    e.preventDefault();
+    if (!isNaN(num1) && !isNaN(num2))
+      op.textContent= num1/num2;
+    else
+      op.textContent= "Enter valid inputs!!"
+  })
+</script>
+</html>
