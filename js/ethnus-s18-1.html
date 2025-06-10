@@ -12,14 +12,28 @@
       justify-content: center;
       flex-direction: column;
       background-color: rgb(130, 209, 130);
+      color: white;
+    }
+    .out{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .disp{
+      padding: 10px;
+      margin: 10px;
+    }
+    #temp{
+      font-size: 50px;
+      margin: 0;
     }
   </style>
 </head>
 <body>
   <h1>Weather App</h1>
-  <div>
+  <div class="out">
     <div class="disp">
-      <p id="temp"></p>
+      <p id="temp">h</p>
       <p id="loc"></p>
       <p id="time"></p>
       <p id="clim"></p>
@@ -42,12 +56,12 @@
       alert('Please enter a location');
   })
   const getWeather=(loc)=>{
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=${apiKey}&units=metric`;
     fetch(url).then(resp=>{
       if (!resp.ok){
         throw new Error('City not found or invalid API key');
           }
-          return response.json(); 
+          return resp.json(); 
         })
         .then(data => {
           display(data);
@@ -63,18 +77,18 @@
     const clim = document.getElementById('clim');
     
     const temperature = data.main.temp;
-    const location = `${data.name}, ${data.sys.country}`;
-    const weatherDescription = data.weather[0].description;
+    const location = data.name;
+    const desp = data.weather[0].description;
     
-    temp.textContent = `Temperature: ${temperature}°C`;
-    loc.textContent = `Location: ${location}`;
-    clim.textContent = `Weather: ${weatherDescription}`;
+    temp.textContent = temperature;
+    loc.textContent = location;
+    clim.textContent = desp;
     
     const date = new Date();
     const hours = date.getHours();
     const minutes = date.getMinutes();
     const formattedTime = `${hours}:${minutes < 10 ? '0' + minutes : minutes}`;
-    time.textContent = `Time: ${formattedTime}`;
+    time.textContent = formattedTime;
   }
 </script>
 </html>
