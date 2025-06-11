@@ -60,7 +60,7 @@
 </head>
 <body>
   <h1>TIMER</h1>
-  <p id="timer">25 : 00</p>
+  <p id="timer"></p>
   <div>
     <button id="start">START</button>
     <button id="stop">STOP</button>
@@ -68,6 +68,45 @@
   </div>
 </body>
 <script>
-  
+  minLeft= 25;
+  secLeft= 0;
+  let count;
+  const update= ()=>{
+    document.getElementById('timer').textContent= `${minLeft< 10?'0'+ minLeft: minLeft} : ${secLeft < 10?'0'+ secLeft: secLeft}`
+  }
+  document.getElementById('start').addEventListener('click', function(e){
+    e.preventDefault();
+   
+    count = setInterval(() => {
+      if (secLeft===0 && minLeft===0) {
+        clearInterval(count );
+        alert("Time Up!!");
+        return;
+      }
+      if (secLeft==0){
+        minLeft--;
+        secLeft= 60;
+      }
+      secLeft--;
+      update();
+
+    }, 1000);
+  })
+
+  document.getElementById('stop').addEventListener('click', function(e){
+    e.preventDefault();
+    clearInterval(count);
+    count= null;
+  });
+
+
+  document.getElementById('reset').addEventListener('click', function(e){
+    e.preventDefault();
+    minLeft = 25;
+    secLeft = 0;
+    clearInterval(count);
+    update();
+  })
+  update();
 </script>
 </html>
