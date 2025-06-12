@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 43</title>
+  <style>
+    body, html{
+      padding: 0;
+      margin: 0;
+      color: white;
+      background-image: url();
+      background-repeat: no-repeat;
+      background-size: cover;  
+      background-position: center center;
+      height: 100%;
+      width: 100%;
+    }
+    #right, #left{
+      color: white;
+      border: solid 1px;
+      padding: 10px;
+      height: 50px;
+      width: 50px;
+      font-weight: bolder;
+      background-color: transparent;
+      border-radius: 50px;
+      font-size: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    nav{
+      border-bottom: solid 1px white;
+    }
+    nav, div, section{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+    }
+    p, button{
+      padding: 0 20px;
+      margin: 0 20px;
+    }
+    section{
+      height: 70vh;
+    }
+    .in{
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .find{
+      background-color: transparent;
+      font-weight: bolder;
+      border-top: solid 2px;
+      border-left: solid 2px;
+      color: white;
+      height: 40px;
+    }
+    .fav{
+      color: white;
+      border: solid 2px;
+      background-color: rgba(224, 158, 169, 0.7);
+      height: 30px;
+      border-radius: 13px 0 13px 0;
+    }
+    h1{
+      font-size: 40px;
+    }
+    .dis{
+      margin: 50px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: none;
+    }
+  </style>
+</head>
+<body id="body">
+  <nav>
+    <div>
+      <button class="find">FlickFinder</button>
+    </div>
+    <div>
+      <p>Home</p>
+      <p>TvShow</p>
+      <p>Movie</p>
+      <p>Upcoming </p>
+      <button class="fav">Favorite</button>
+    </div>
+  </nav>
+  <section>
+    <button id="left"><</button>
+    <div class="in">
+      <h1>Bringing the Bigger Screen to Your Screen</h1>
+      <p style="width: 50%;"> Discover, critique, and celebrate movies with honest reviews and fresh takes on every film</p>
+      <button class="dis">Discover More...</button>
+    </div>
+    <button id="right">></button>
+  </section>
+</body>
+<script>
+  const urls= [
+    'https://wallpapers.com/images/featured/movie-background-4saldhgir0h87q13.jpg', 
+    'https://e0.pxfuel.com/wallpapers/903/292/desktop-wallpaper-action-movie-background-battle-scene.jpg',
+    'https://wallpapers.com/images/hd/action-movie-1920-x-1080-wallpaper-x76d4reecsjj1aai.jpg', 
+    'https://img.pikbest.com/video/20250218/action-movie-style-explosion-with-dust-and-fire_11536641.jpg!w700wp',
+    'https://images7.alphacoders.com/325/thumb-1920-325112.jpg',
+    'https://static.vecteezy.com/system/resources/thumbnails/028/274/915/small/strong-athletic-male-fighter-view-from-the-back-photo.jpg',
+    'https://static.vecteezy.com/system/resources/thumbnails/029/973/923/small/desolate-city-street-with-burning-flames-and-distant-explosions-photo.jpeg',
+    'https://static.vecteezy.com/system/resources/thumbnails/053/052/231/small/black-hawk-helicopter-flying-over-a-fiery-landscape-free-photo.jpeg',
+
+  ]
+  
+  const right= document.getElementById('right');
+  const left= document.getElementById('left');
+  let ri= 0;
+  
+  const render= ()=>{
+    document.getElementById('body').style.backgroundImage= `url(${urls[ri]})`;
+  }
+
+  right.addEventListener('click', function(e){
+    e.preventDefault();
+    ri++;
+    if (ri>=urls.length) ri=0;
+    render();
+  })
+
+  left.addEventListener('click', function(e){
+    e.preventDefault();
+    ri--;
+    if (ri<0) ri=urls.length-1;
+    render();
+  })
+
+  render();
+
+</script>
+</html>
